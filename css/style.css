@@ -453,13 +453,15 @@ h1, h2, h3, h4 {
 .hero-slide {
   position: absolute;
   inset: 0;
-  visibility: hidden;
+  opacity: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-slide.is-active {
-  visibility: visible;
+  opacity: 1;
   pointer-events: auto;
+  z-index: 1;
 }
 
 /* Hero Scroll Indicator */
