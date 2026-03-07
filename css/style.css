@@ -453,13 +453,12 @@ h1, h2, h3, h4 {
 .hero-slide {
   position: absolute;
   inset: 0;
-  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.6s ease;
 }
 
 .hero-slide.is-active {
-  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
