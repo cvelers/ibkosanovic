@@ -183,17 +183,26 @@ h1, h2, h3, h4 {
   gap: 0.5rem;
   text-decoration: none;
   flex-shrink: 0;
-  font-family: "DM Serif Display", Georgia, serif;
-  font-weight: 400;
-  font-size: 1.35rem;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 1.3rem;
   color: var(--color-primary);
   letter-spacing: -0.01em;
+  transition: color var(--transition);
+}
+
+.logo-ib {
+  color: var(--color-accent);
   transition: color var(--transition);
 }
 
 .logo:hover {
   text-decoration: none;
   color: var(--color-accent);
+}
+
+.logo:hover .logo-ib {
+  color: var(--color-primary);
 }
 
 .logo-icon {
@@ -1404,10 +1413,14 @@ textarea.form-input {
 }
 
 .footer-logo-text {
-  font-family: "DM Serif Display", Georgia, serif;
-  font-weight: 400;
-  font-size: 1.35rem;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 1.3rem;
   color: #fff;
+}
+
+.footer-logo-text .logo-ib {
+  color: var(--color-accent);
 }
 
 .footer h4 {
