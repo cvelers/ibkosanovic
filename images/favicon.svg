@@ -4,18 +4,17 @@
       <stop offset="0%" stop-color="#1a5263"/>
       <stop offset="100%" stop-color="#0e3a48"/>
     </linearGradient>
-    <linearGradient id="lt" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3a9ab5"/>
-      <stop offset="100%" stop-color="#1a5263"/>
+    <linearGradient id="ar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d94a30"/>
+      <stop offset="100%" stop-color="#a8321a"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="url(#bg)"/>
   <g transform="translate(8,8) scale(0.1333)">
-    <!-- Left leg -->
-    <path fill="#fff" opacity="0.95" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
-    <!-- Center V triangle -->
-    <path fill="url(#lt)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
-    <!-- Right leg -->
-    <path fill="#fff" opacity="0.95" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+    <g transform="rotate(90 200 200)">
+      <path fill="#fff" opacity="0.95" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
+      <path fill="url(#ar)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
+      <path fill="#fff" opacity="0.95" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+    </g>
   </g>
 </svg>
