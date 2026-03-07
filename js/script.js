@@ -17,6 +17,7 @@
       var saved = localStorage.getItem(THEME_KEY);
       if (saved === 'dark' || saved === 'light') return saved;
     } catch (e) { /* noop */ }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
     return 'light';
   }
 
