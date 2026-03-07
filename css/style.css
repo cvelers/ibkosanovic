@@ -211,6 +211,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  order: 2;
 }
 
 .nav-links a {
@@ -1200,6 +1201,7 @@ textarea.form-input {
   overflow: hidden;
   border: 1px solid var(--color-border);
   transition: all var(--transition);
+  background: var(--color-bg-card);
 }
 
 .fachbrief-thumb img {
@@ -1543,11 +1545,12 @@ textarea.form-input {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* ===== Nav Actions (theme toggle + hamburger wrapper for mobile) ===== */
+/* ===== Nav Actions (theme toggle + hamburger wrapper) ===== */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  order: 3;
 }
 
 /* ===== Theme Toggle ===== */
@@ -1555,31 +1558,30 @@ textarea.form-input {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   padding: 0;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border: none;
+  border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  color: var(--color-text-secondary);
-  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  color: var(--color-text-muted);
+  transition: color var(--transition), background var(--transition);
   flex-shrink: 0;
 }
 
 .theme-toggle:hover {
   color: var(--color-primary);
-  border-color: var(--color-primary);
-  background: rgba(26, 82, 99, 0.04);
+  background: rgba(26, 82, 99, 0.08);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-  background: rgba(58, 154, 181, 0.08);
+  background: rgba(58, 154, 181, 0.1);
 }
 
 .theme-toggle svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   transition: transform 0.3s ease;
 }
 
@@ -1606,9 +1608,21 @@ textarea.form-input {
   .nav-toggle { display: flex; }
 
   .nav-actions {
+    order: unset;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-primary);
   }
 
   .nav-links {

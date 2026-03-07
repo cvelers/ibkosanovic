@@ -17,7 +17,7 @@
       var saved = localStorage.getItem(THEME_KEY);
       if (saved === 'dark' || saved === 'light') return saved;
     } catch (e) { /* noop */ }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'light';
   }
 
   function applyTheme(theme) {
@@ -34,15 +34,6 @@
       try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* noop */ }
     });
   });
-
-  // Respond to OS theme changes if no saved preference
-  try {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-      if (!localStorage.getItem(THEME_KEY)) {
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-  } catch (e) { /* noop – old browsers */ }
 
   // ── Header scroll effect ──
   var header = document.querySelector('.header');
