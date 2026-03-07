@@ -10,7 +10,7 @@
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-  <g transform="translate(8,8) scale(0.1333)">
+  <g transform="translate(5.34,5.34) scale(0.1333)">
     <g transform="rotate(90 200 200)">
       <path fill="#fff" opacity="0.95" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
       <path fill="url(#ar)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
