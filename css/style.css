@@ -620,7 +620,7 @@ h1, h2, h3, h4 {
 }
 
 .section--alt { background: var(--color-bg-alt); }
-#portfolio-serbien { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
+#portfolio-serbien { padding-top: 0; }
 
 .section--dark {
   background: var(--color-bg-dark);
