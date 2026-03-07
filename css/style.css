@@ -150,6 +150,8 @@ h1, h2, h3, h4 {
 .logo-icon {
   height: 32px;
   width: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Nav Links */
