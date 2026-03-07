@@ -1771,7 +1771,7 @@ textarea.form-input {
 
   .stats-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
-  .fachbrief-inner { grid-template-columns: 100px 1fr; gap: 1rem; }
+  .fachbrief-inner { grid-template-columns: 100px 1fr; gap: 1rem; align-items: center; }
   .fachbrief-item { padding: 1.25rem; }
   .fachbrief-title { font-size: 1.05rem; }
   .fachbrief-actions { gap: 0.5rem; }
