@@ -1551,6 +1551,7 @@ textarea.form-input {
   align-items: center;
   gap: 0.5rem;
   order: 3;
+  margin-left: auto;
 }
 
 /* ===== Theme Toggle ===== */
