@@ -953,6 +953,7 @@ h1, h2, h3, h4 {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
+  min-width: 0;
 }
 
 .contact-info-card {
@@ -961,6 +962,9 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .contact-info-card h3 {
@@ -1014,6 +1018,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
 }
 
 .contact-form-title {
@@ -1094,6 +1099,8 @@ textarea.form-input {
   border-radius: var(--radius);
   padding: 1.75rem;
   transition: all var(--transition);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .fachbrief-item:hover {
@@ -1103,24 +1110,78 @@ textarea.form-input {
 
 .fachbrief-inner {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 160px 1fr;
   gap: 1.75rem;
   align-items: start;
+  min-width: 0;
 }
 
-.fachbrief-pdf-preview {
+.fachbrief-inner > div {
+  min-width: 0;
+}
+
+.fachbrief-thumb {
   flex-shrink: 0;
-  border: 1px solid var(--color-border);
+  display: flex;
+  text-decoration: none;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: #fff;
+  aspect-ratio: 1 / 1.414;
+  background: linear-gradient(160deg, #f8f7f5 0%, #efeee9 100%);
+  border: 1px solid var(--color-border);
+  position: relative;
+  transition: all var(--transition);
 }
 
-.fachbrief-pdf-preview iframe {
-  display: block;
-  width: 180px;
-  height: 254px;
-  border: none;
+.fachbrief-thumb:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.fachbrief-thumb-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.fachbrief-thumb-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(199, 61, 34, 0.1);
+  border-radius: 12px;
+  color: var(--color-accent);
+}
+
+.fachbrief-thumb-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+.fachbrief-thumb-format {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .fachbrief-meta { margin-bottom: 0.35rem; }
@@ -1135,6 +1196,8 @@ textarea.form-input {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .fachbrief-title a {
@@ -1151,6 +1214,13 @@ textarea.form-input {
   line-height: 1.55;
 }
 
+.fachbrief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 .fachbrief-link {
   display: inline-flex;
   align-items: center;
@@ -1162,6 +1232,28 @@ textarea.form-input {
 
 .fachbrief-link:hover { gap: 0.6rem; text-decoration: none; }
 .fachbrief-link::after { content: '\2192'; transition: transform var(--transition); }
+
+.fachbrief-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(26, 82, 99, 0.06);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.fachbrief-download:hover {
+  background: rgba(26, 82, 99, 0.12);
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+  text-decoration: none;
+}
 
 /* ===== Stats Row ===== */
 .stats-row {
@@ -1480,8 +1572,18 @@ textarea.form-input {
 
   .stats-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
-  .fachbrief-inner { grid-template-columns: 1fr; }
+  .fachbrief-inner { grid-template-columns: 100px 1fr; gap: 1rem; }
+  .fachbrief-item { padding: 1.25rem; }
+  .fachbrief-thumb-inner { padding: 1rem 0.5rem; gap: 0.5rem; }
+  .fachbrief-thumb-icon { width: 36px; height: 36px; border-radius: 8px; }
+  .fachbrief-thumb-icon svg { width: 18px; height: 18px; }
+  .fachbrief-thumb-label { font-size: 0.65rem; }
+  .fachbrief-title { font-size: 1.05rem; }
+  .fachbrief-actions { gap: 0.5rem; }
   .form-row { grid-template-columns: 1fr; }
+
+  .contact-info-card,
+  .contact-form-card { padding: 1.5rem; }
 
   .cookie-banner {
     bottom: 1rem;
