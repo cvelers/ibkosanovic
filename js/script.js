@@ -9,6 +9,41 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ── Theme Toggle (Dark Mode) ──
+  var THEME_KEY = 'ibk-theme';
+
+  function getPreferredTheme() {
+    try {
+      var saved = localStorage.getItem(THEME_KEY);
+      if (saved === 'dark' || saved === 'light') return saved;
+    } catch (e) { /* noop */ }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  applyTheme(getPreferredTheme());
+
+  document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* noop */ }
+    });
+  });
+
+  // Respond to OS theme changes if no saved preference
+  try {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      if (!localStorage.getItem(THEME_KEY)) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  } catch (e) { /* noop – old browsers */ }
+
   // ── Header scroll effect ──
   var header = document.querySelector('.header');
   if (header) {
