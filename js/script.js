@@ -190,11 +190,15 @@
     }
   });
 
-  // ── Cookie Banner ──
+  // ── Cookie Consent ──
   var cookieBanner = document.getElementById('cookie-banner');
   var cookieAccept = document.querySelector('.cookie-accept');
   var cookieHide = document.querySelector('.cookie-hide');
   var COOKIE_KEY = 'ibk-cookie-consent';
+
+  function getConsent() {
+    try { return localStorage.getItem(COOKIE_KEY); } catch (e) { return null; }
+  }
 
   function hideCookieBanner(value) {
     if (value !== undefined) {
@@ -206,15 +210,42 @@
     }
   }
 
-  if (cookieBanner) {
-    try {
-      var saved = localStorage.getItem(COOKIE_KEY);
-      if (saved) hideCookieBanner();
-    } catch (e) { /* noop */ }
+  function loadConsentContent() {
+    document.querySelectorAll('[data-consent-src]').forEach(function (el) {
+      var iframe = document.createElement('iframe');
+      iframe.src = el.getAttribute('data-consent-src');
+      iframe.width = '100%';
+      iframe.height = '350';
+      iframe.style.cssText = 'border:0;display:block';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('loading', 'lazy');
+      iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      iframe.setAttribute('title', el.getAttribute('data-consent-title') || '');
+      el.parentNode.replaceChild(iframe, el);
+    });
   }
 
-  if (cookieAccept) cookieAccept.addEventListener('click', function () { hideCookieBanner('accept'); });
-  if (cookieHide) cookieHide.addEventListener('click', function () { hideCookieBanner('hide'); });
+  if (cookieBanner) {
+    var saved = getConsent();
+    if (saved) {
+      hideCookieBanner();
+      if (saved === 'accept') loadConsentContent();
+    }
+  }
+
+  if (cookieAccept) cookieAccept.addEventListener('click', function () {
+    hideCookieBanner('accept');
+    loadConsentContent();
+  });
+  if (cookieHide) cookieHide.addEventListener('click', function () { hideCookieBanner('decline'); });
+
+  // Map consent button (inline accept for map only)
+  document.querySelectorAll('.map-consent-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      hideCookieBanner('accept');
+      loadConsentContent();
+    });
+  });
 
   // ── Contact form (mailto fallback) ──
   var contactForm = document.querySelector('.contact-form');
