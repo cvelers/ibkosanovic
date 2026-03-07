@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" aria-label="VK Logo">
+  <defs>
+    <style type="text/css">
+      .vertical-float-animation {
+        animation: verticalFloat 6s ease-in-out infinite;
+      }
+      .horizontal-float-animation {
+        animation: horizontalFloat 4s ease-in-out infinite;
+      }
+      @keyframes verticalFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(0px); }
+      }
+      @keyframes horizontalFloat {
+        0%, 100% { transform: translateY(10px); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+
+    <!-- Primary Teal Gradient -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a5263" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#0e3a48" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0a2e3a" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Light Teal Gradient -->
+    <linearGradient id="lightTealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a9ab5" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#2a7a94" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1a5263" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Accent Red Gradient -->
+    <linearGradient id="accentRedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d94a30" stop-opacity="1"/>
+      <stop offset="50%" stop-color="#c73d22" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#a8321a" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Geometric Pattern -->
+    <pattern id="geometricPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="rgba(255,255,255,0.05)"/>
+      <path d="M0,10 L10,0 L20,10 L10,20 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- Advanced Drop Shadow -->
+    <filter id="advancedShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="8" dy="12" result="offset"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feColorMatrix values="0 0 0.1 0 0  0 0 0.2 0 0  0 0 0.3 0 0  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Formation 1: V - middle triangle animates vertically -->
+  <g id="formation1" transform="translate(0,0)">
+    <!-- Left triangle - static -->
+    <path fill="url(#primaryGradient)" filter="url(#advancedShadow)" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
+    <path fill="url(#geometricPattern)" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
+
+    <!-- Middle triangle - animated vertically -->
+    <g class="vertical-float-animation">
+      <path fill="url(#lightTealGradient)" filter="url(#advancedShadow)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
+      <path fill="url(#geometricPattern)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
+    </g>
+
+    <!-- Right triangle - static -->
+    <path fill="url(#primaryGradient)" filter="url(#advancedShadow)" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+    <path fill="url(#geometricPattern)" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+  </g>
+
+  <!-- Formation 2: K - middle triangle animates horizontally -->
+  <g id="formation2" transform="translate(440,0)">
+    <g transform="rotate(90 200 200)">
+      <!-- Left triangle - static -->
+      <path fill="url(#primaryGradient)" filter="url(#advancedShadow)" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
+      <path fill="url(#geometricPattern)" d="M 36,380 A 16,16 0 0,1 20,364 L 20,100 A 16,16 0 0,1 50.769,93.846 L 160.769,357.846 A 16,16 0 0,1 146,380 Z"/>
+
+      <!-- Middle triangle - RED accent with horizontal animation -->
+      <g class="horizontal-float-animation">
+        <path fill="url(#accentRedGradient)" filter="url(#advancedShadow)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
+        <path fill="url(#geometricPattern)" d="M 108.238,41.683 A 16,16 0 0,1 123.195,20 L 276.805,20 A 16,16 0 0,1 291.762,41.683 L 214.957,243.838 A 16,16 0 0,1 185.043,243.838 Z"/>
+      </g>
+
+      <!-- Right triangle - static -->
+      <path fill="url(#primaryGradient)" filter="url(#advancedShadow)" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+      <path fill="url(#geometricPattern)" d="M 349.231,93.846 A 16,16 0 0,1 380,100 L 380,364 A 16,16 0 0,1 364,380 L 254,380 A 16,16 0 0,1 239.231,357.846 Z"/>
+    </g>
+  </g>
+</svg>

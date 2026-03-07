@@ -131,30 +131,26 @@ h1, h2, h3, h4 {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   text-decoration: none;
   flex-shrink: 0;
-}
-
-.logo:hover { text-decoration: none; }
-
-.logo-img {
-  height: 36px;
-  width: auto;
-  transition: transform var(--transition);
-}
-
-.logo:hover .logo-img { transform: scale(1.04); }
-
-.logo-text {
-  font-weight: 700;
-  font-size: 1.3rem;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.35rem;
   color: var(--color-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   transition: color var(--transition);
 }
 
-.logo:hover .logo-text { color: var(--color-accent); }
+.logo:hover {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.logo-icon {
+  height: 32px;
+  width: auto;
+}
 
 /* Nav Links */
 .nav-links {
@@ -1255,16 +1251,17 @@ textarea.form-input {
   gap: 0.5rem;
 }
 
-.footer-logo-img {
-  height: 30px;
+.footer-logo-icon {
+  height: 28px;
   width: auto;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .footer-logo-text {
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.35rem;
   color: #fff;
 }
 
