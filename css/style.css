@@ -862,6 +862,11 @@ h1, h2, h3, h4 {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transition: transform 0.3s ease;
+}
+
+.about-profile-badge:hover .about-profile-photo {
+  transform: scale(1.06);
 }
 
 .about-profile-name {
