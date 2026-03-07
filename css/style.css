@@ -188,13 +188,12 @@ h1, h2, h3, h4 {
   font-size: 1.35rem;
   color: var(--color-primary);
   letter-spacing: -0.01em;
-  transition: color var(--transition), transform 0.3s ease;
+  transition: color var(--transition);
 }
 
 .logo:hover {
   text-decoration: none;
   color: var(--color-accent);
-  transform: scale(1.06);
 }
 
 .logo-icon {
@@ -202,6 +201,11 @@ h1, h2, h3, h4 {
   width: auto;
   display: inline-block;
   vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.12);
 }
 
 /* Nav Links */
